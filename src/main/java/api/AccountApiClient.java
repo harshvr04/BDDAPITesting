@@ -9,6 +9,7 @@ import static io.restassured.RestAssured.given;
 public class AccountApiClient {
     private final String baseUrl = ConfigurationManager.get("base.url");
     private final String apiKey = ConfigurationManager.get("api.key");
+    private final String accountsUrl = ConfigurationManager.get("accounts.url");
 
     public Response createAccount(AccountRequest request) {
         return given()
@@ -16,6 +17,6 @@ public class AccountApiClient {
             .header("x-api-key", apiKey)
             .header("Content-Type", "application/json")
             .body(request)
-            .post("/api/accounts");
+            .post(accountsUrl);
     }
 }

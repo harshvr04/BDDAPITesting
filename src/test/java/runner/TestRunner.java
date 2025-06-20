@@ -1,15 +1,16 @@
 package runner;
 
-import org.junit.platform.suite.api.ConfigurationParameter;
-import org.junit.platform.suite.api.SelectClasspathResource;
-import org.junit.platform.suite.api.Suite;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-import static io.cucumber.core.options.Constants.GLUE_PROPERTY_NAME;
-import static io.cucumber.core.options.Constants.PLUGIN_PROPERTY_NAME;
-
-@Suite
-@SelectClasspathResource("features")
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "steps")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm")
-public class TestRunner {
+@CucumberOptions(
+    features = "src/test/resources/features",
+    glue = "steps",
+    plugin = {
+        "pretty",
+        "json:target/cucumber.json",
+        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+    }
+)
+public class TestRunner extends AbstractTestNGCucumberTests {
 }
