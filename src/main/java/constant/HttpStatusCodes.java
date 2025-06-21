@@ -1,4 +1,4 @@
-package utils;
+package constant;
 
 public class HttpStatusCodes {
     public static final int OK = 200;

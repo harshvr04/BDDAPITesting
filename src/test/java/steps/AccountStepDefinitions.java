@@ -11,7 +11,7 @@ import model.AccountRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
-import static utils.Constants.ACCOUNT_ID;
+import static constant.Constants.ACCOUNT_ID;
 
 public class AccountStepDefinitions {
     private static final Logger logger = LoggerFactory.getLogger(AccountStepDefinitions.class);

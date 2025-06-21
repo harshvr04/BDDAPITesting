@@ -5,14 +5,14 @@ import io.restassured.response.Response;
 import model.AccountRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import utils.TestContext;
+import util.TestContext;
 
 import static io.restassured.RestAssured.given;
-import static utils.Constants.ACCOUNTS_URL;
-import static utils.Constants.API_KEY_HEADER;
-import static utils.Constants.BASE_URL;
-import static utils.Constants.CONTENT_TYPE;
-import static utils.Constants.CONTENT_TYPE_JSON;
+import static constant.Constants.ACCOUNTS_URL;
+import static constant.Constants.API_KEY_HEADER;
+import static constant.Constants.BASE_URL;
+import static constant.Constants.CONTENT_TYPE;
+import static constant.Constants.CONTENT_TYPE_JSON;
 
 public class AccountApiClient {
     private static final Logger logger = LoggerFactory.getLogger(AccountApiClient.class);

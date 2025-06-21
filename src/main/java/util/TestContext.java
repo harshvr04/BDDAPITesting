@@ -1,6 +1,6 @@
-package utils;
+package util;
 
-import static utils.Constants.API_KEY;
+import static constant.Constants.API_KEY;
 
 import io.restassured.response.Response;
 import java.util.HashMap;

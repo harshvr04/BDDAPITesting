@@ -1,9 +1,9 @@
 package steps;
 
-import static utils.Constants.ACCOUNT_ID;
-import static utils.Constants.FIRST_NAME;
-import static utils.Constants.LAST_NAME;
-import static utils.HttpStatusCodes.OK;
+import static constant.Constants.ACCOUNT_ID;
+import static constant.Constants.FIRST_NAME;
+import static constant.Constants.LAST_NAME;
+import static constant.HttpStatusCodes.OK;
 
 import helper.AccountHelper;
 import io.cucumber.java.en.Given;
@@ -14,7 +14,7 @@ import model.AccountRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
-import utils.TestContext;
+import util.TestContext;
 
 public class AccountRetrievalStepDefinitions {
     private static final Logger logger = LoggerFactory.getLogger(AccountRetrievalStepDefinitions.class);

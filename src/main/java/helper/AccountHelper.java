@@ -3,10 +3,10 @@ package helper;
 import api.AccountApiClient;
 import io.restassured.response.Response;
 import model.AccountRequest;
-import utils.TestContext;
+import util.TestContext;
 
-import static utils.HttpStatusCodes.OK;
-import static utils.Constants.ACCOUNT_ID;
+import static constant.HttpStatusCodes.OK;
+import static constant.Constants.ACCOUNT_ID;
 
 public class AccountHelper {
     private final AccountApiClient accountApiClient;

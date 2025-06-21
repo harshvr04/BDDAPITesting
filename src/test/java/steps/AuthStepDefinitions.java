@@ -6,10 +6,10 @@ import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
-import utils.TestContext;
+import util.TestContext;
 
-import static utils.Constants.USERNAME_KEYWORD;
-import static utils.Constants.PASSWORD_KEYWORD;
+import static constant.Constants.USERNAME_KEYWORD;
+import static constant.Constants.PASSWORD_KEYWORD;
 
 public class AuthStepDefinitions {
     private static final Logger logger = LoggerFactory.getLogger(AuthStepDefinitions.class);

@@ -5,15 +5,14 @@ import io.restassured.response.Response;
 import model.AuthRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import utils.HttpStatusCodes;
 
 import static io.restassured.RestAssured.given;
-import static utils.Constants.API_KEY;
-import static utils.Constants.AUTH_URL;
-import static utils.Constants.BASE_URL;
-import static utils.Constants.CONTENT_TYPE;
-import static utils.Constants.CONTENT_TYPE_JSON;
-import static utils.HttpStatusCodes.OK;
+import static constant.Constants.API_KEY;
+import static constant.Constants.AUTH_URL;
+import static constant.Constants.BASE_URL;
+import static constant.Constants.CONTENT_TYPE;
+import static constant.Constants.CONTENT_TYPE_JSON;
+import static constant.HttpStatusCodes.OK;
 
 
 public class AuthClient {
