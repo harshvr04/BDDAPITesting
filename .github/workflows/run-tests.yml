@@ -10,6 +10,12 @@ on:
         description: 'Cucumber tag to run (e.g., @smoke)'
         required: true
         default: '@sanity'
+      username:
+        description: 'Username to run the test'
+        required: true
+      password:
+        description: 'Password to run the test'
+        required: true
 
 jobs:
   test:
@@ -32,14 +38,17 @@ jobs:
             echo "No tag provided. Using default: @sanity"
             TAG="@sanity"
           fi
+
+          echo "Running tests with tag: $TAG"
+
           mvn clean test \
             -Dcucumber.filter.tags="$TAG" \
-            -Dusername=${{ secrets.USERNAME }} \
-            -Dpassword=${{ secrets.PASSWORD }}
+            -Dusername="${{ github.event.inputs.username }}" \
+            -Dpassword="${{ github.event.inputs.password }}"
 
-      - name: Upload Cucumber HTML Report
+      - name: Upload ExtentSpark HTML Report
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: cucumber-report
+          name: ExtentSpark-Report
           path: target/Spark/ExtentSpark.html
