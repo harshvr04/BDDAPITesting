@@ -45,9 +45,9 @@ The framework is built using Cucumber, TestNG, and REST Assured, providing a cle
 ### 3. Reporting
 
 - **Local**: ExtentReport for visually rich HTML test results
-  ![Extent_Report_Local_2.png](doc/Extent_Report_Local_2.png)
+ -![Extent_Report_Local_2.png](doc/Extent_Report_Local_2.png)
 
-![Extent_Report_Local_1.png](doc/Extent_Report_Local_1.png)
+  ![Extent_Report_Local_1.png](doc/Extent_Report_Local_1.png)
 - **Cloud**: Sharable Cucumber Reports uploaded to Cucumber cloud storage
 
 ### 4. Configurable Setup
@@ -95,11 +95,13 @@ mvn clean test -Dcucumber.filter.tags="@regression" -Dusername="alice" -Dpasswor
 mvn clean test -Dcucumber.filter.tags="@sanity" //Default Username and Password used. Envionment set to local
 ```
 
-Command to run tests based on Country:
+### Command to run tests based on Country:
 ```bash
 mvn clean test -Dcucumber.filter.tags="@sanity and @Germany" -Dusername="alice" -Dpassword="s3cr3t" -Denv=local
 ```
 
+#### Observer Britain Tests are Disabled
+![Country_Specific_Test_DE.png](doc/Country_Specific_Test_DE.png)
 ### ⚙️ Run Load Tests
 
 ```bash
