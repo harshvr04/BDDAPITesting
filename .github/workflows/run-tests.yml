@@ -27,8 +27,13 @@ jobs:
 
       - name: Build and Run Tests
         run: |
+          TAG="${{ github.event.inputs.suite }}"
+          if [ -z "$TAG" ]; then
+            echo "No tag provided. Using default: @sanity"
+            TAG="@sanity"
+          fi
           mvn clean test \
-            -Dcucumber.filter.tags="${{ github.event.inputs.suite }}" \
+            -Dcucumber.filter.tags="$TAG" \
             -Dusername=${{ secrets.USERNAME }} \
             -Dpassword=${{ secrets.PASSWORD }}
 
