@@ -9,7 +9,7 @@ import java.util.Map;
 public class TestContext {
     // Each thread starts with its own new HashMap
     // Prevents test data bleeding between parallel threads
-    // Perfect for storing data like auth tokens, user info, responses, etc.
+    // Perfect for storing data like api keys, auth tokens, user info, responses, etc.
     private static final ThreadLocal<Map<String, Object>> context = ThreadLocal.withInitial(HashMap::new);
 
     public static void set(String key, Object value) {
