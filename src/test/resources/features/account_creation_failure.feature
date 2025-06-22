@@ -2,7 +2,7 @@
 Feature: Bank Account creation Failure Tests - Sad Path Scenarios
 
   Background:
-    Given the user is authenticated with username "alice" and password "s3cr3t" when credentials not passed through CLI
+    Given the user is authenticated with username Default Username and Default Password when credentials not passed through CLI
 
   @smoke @local
   Scenario Outline: Creating New Bank account with Name length more than threshold should FAIL

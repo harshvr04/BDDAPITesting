@@ -2,7 +2,7 @@
 Feature: Bank Account creation Tests - Happy Path Scenarios
 
   Background:
-    Given the user is authenticated with username "alice" and password "s3cr3t" when credentials not passed through CLI
+    Given the user is authenticated with username Default Username and Default Password when credentials not passed through CLI
 
   @sanity
   Scenario Outline: Create New Bank account with valid data

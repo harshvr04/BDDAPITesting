@@ -18,8 +18,12 @@ public class AccountStepDefinitions {
     private static final Logger logger = LoggerFactory.getLogger(AccountStepDefinitions.class);
 
     private final AccountRequest request = new AccountRequest();
-    private final AccountApiClient apiClient = new AccountApiClient();
+    private final AccountApiClient apiClient;
     private Response response;
+
+    public AccountStepDefinitions() {
+        apiClient = new AccountApiClient();
+    }
 
     @Given("I have a client with first name {string} and last name {string}")
     public void setNames(String firstName, String lastName) {

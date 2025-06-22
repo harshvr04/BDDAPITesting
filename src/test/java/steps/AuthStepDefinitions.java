@@ -8,20 +8,27 @@ import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import util.TestContext;
 
+import static constant.Constants.DEFAULT_PASSWORD;
+import static constant.Constants.DEFAULT_USERNAME;
 import static constant.Constants.USERNAME_KEYWORD;
 import static constant.Constants.PASSWORD_KEYWORD;
 
 public class AuthStepDefinitions {
     private static final Logger logger = LoggerFactory.getLogger(AuthStepDefinitions.class);
 
-    private final AuthClient authClient = new AuthClient();
+    private final AuthClient authClient;
     private Response response;
 
-    @Given("the user is authenticated with username {string} and password {string} when credentials not passed through CLI")
-    public void userLogsIn(String username, String password) {
+
+     public AuthStepDefinitions() {
+        authClient = new AuthClient();
+    }
+
+    @Given("the user is authenticated with username Default Username and Default Password when credentials not passed through CLI")
+    public void userLogsIn() {
         // Use injected values if passed; otherwise fallback
-        String user = System.getProperty(USERNAME_KEYWORD, username);
-        String pass = System.getProperty(PASSWORD_KEYWORD, password);
+        String user = System.getProperty(USERNAME_KEYWORD, DEFAULT_USERNAME);
+        String pass = System.getProperty(PASSWORD_KEYWORD, DEFAULT_PASSWORD);
 
         // Store in context or use immediately
         TestContext.set(USERNAME_KEYWORD, user);

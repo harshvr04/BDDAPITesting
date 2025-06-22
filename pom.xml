@@ -89,6 +89,17 @@
 
   <build>
     <plugins>
+      <!-- Explicitly declaring maven-compiler-plugin - To avoid warning -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.10.1</version>
+        <configuration>
+          <release>17</release>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+
       <!-- Surefire Plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -103,6 +114,34 @@
           </includes>
         </configuration>
       </plugin>
+
+     <!-- Fancy Build Message -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <phase>install</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <echo>
+
+╔════════════════════════════════════════════════╗
+║   ✅  Build Successful: SumUp SDET Challenge 🚀 ║
+║           Presented by Harshvardhan            ║
+╚════════════════════════════════════════════════╝
+
+                </echo>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
   </build>
 </project>

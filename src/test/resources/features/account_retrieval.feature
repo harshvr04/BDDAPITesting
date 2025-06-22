@@ -2,7 +2,7 @@
 Feature: Bank Account Retrieval Feature - Happy Path Scenarios
 
   Background:
-    Given the user is authenticated with username "alice" and password "s3cr3t" when credentials not passed through CLI
+    Given the user is authenticated with username Default Username and Default Password when credentials not passed through CLI
 
   @sanity
   Scenario Outline: Retrieve Newly Created Bank account by ID

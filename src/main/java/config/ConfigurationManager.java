@@ -16,6 +16,10 @@ public class ConfigurationManager {
             throw new RuntimeException("Failed to load config for env: " + env, e);
         }
 
+        /*
+         * @deprecated This try/catch block of loading secret keys is insecure and is not being used.
+         * API-Key are fetched dynamically during run time when Username and Password are provided via CLI
+
         try {
             // Load secret keys if the file exists
             FileInputStream secretConfig = new FileInputStream("src/test/resources/secret_keys.properties");
@@ -23,6 +27,7 @@ public class ConfigurationManager {
         } catch (IOException ignored) {
             System.out.println("No secret_keys.properties file found. Continuing without API Key.");
         }
+        */
     }
 
     public static String get(String key) {
