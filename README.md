@@ -4,11 +4,25 @@ This BDD (Behavior-Driven Development) test automation framework is built for a 
 The framework is built using Cucumber, TestNG, and REST Assured, providing a clean separation of test definitions (in Gherkin), implementation logic (step definitions and API clients), and configuration.
 ## 🔧 Requirements
 
-- **IDE**: IntelliJ
-- **JDK**: Amazon Corretto 17
+- **IDE**: [IntelliJ](https://www.jetbrains.com/idea/download/?section=mac)
+- **JDK**: [Amazon Corretto 17](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html)
+
+## ⚙️ Installing
+##### Clone the repo:
+
+```bash
+git clone https://github.com/sumup-challenges/harshvr04.git
+```
+  
+Import the project into IntelliJ IDEA:
+
+   - File > New > Project from Existing Sources
+   - Select the directory containing the repo.
+   - Select Import project from external model and choose Maven.
+   - Finish
+
 
 ## 📦 Recommended IntelliJ Plugins
-
 - Gherkin
 - Cucumber for Java
 - Maven
@@ -100,7 +114,7 @@ mvn clean test -Dcucumber.filter.tags="@sanity" //Default Username and Password 
 mvn clean test -Dcucumber.filter.tags="@sanity and @Germany" -Dusername="alice" -Dpassword="s3cr3t" -Denv=local
 ```
 
-#### Observer Britain Tests are Disabled
+#### Observe "@Britain" Tests are Disabled
 ![Country_Specific_Test_DE.png](doc/Country_Specific_Test_DE.png)
 ### ⚙️ Run Load Tests
 
