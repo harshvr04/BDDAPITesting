@@ -1,5 +1,7 @@
 # BDD Cucumber Framework (Developer README)
+This BDD (Behavior-Driven Development) test automation framework is built for a fintech startup launching digital banking services across Great Britain and Germany. It is designed to validate backend APIs that handle account creation and management, secured via API keys.
 
+The framework is built using Cucumber, TestNG, and REST Assured, providing a clean separation of test definitions (in Gherkin), implementation logic (step definitions and API clients), and configuration.
 ## 🔧 Requirements
 
 - **IDE**: IntelliJ
@@ -91,6 +93,11 @@ mvn clean install -DskipTests
 mvn clean test -Dcucumber.filter.tags="@regression" -Dusername="alice" -Dpassword="s3cr3t" -Denv=staging
 
 mvn clean test -Dcucumber.filter.tags="@sanity" //Default Username and Password used. Envionment set to local
+```
+
+Command to run tests based on Country:
+```bash
+mvn clean test -Dcucumber.filter.tags="@sanity and @Germany" -Dusername="alice" -Dpassword="s3cr3t" -Denv=local
 ```
 
 ### ⚙️ Run Load Tests
@@ -203,6 +210,17 @@ Results reported to:
 
 ---
 
+### 🚀 Planned Enhancements
+
+- Integration with test management systems (like TestRail or Zephyr) to sync execution results
+
+- Data-driven testing support using external files (CSV, JSON, Excel)
+
+- Slack/Email integration to notify test results from CI pipelines
+- #### Natural Language Test Generation: Use an LLM to convert stakeholder-written English scenarios (e.g., “Verify that users under 18 cannot open accounts”) into:
+   - Gherkin syntax
+   - Matching step definitions
+   - Data inputs (pre-filled JSON bodies or values)
 ## 📘 See Also
 - [GitHub Actions Workflow Docs](.github/workflows/test.yml)
 ---

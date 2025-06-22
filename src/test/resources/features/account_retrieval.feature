@@ -10,6 +10,7 @@ Feature: Bank Account Retrieval Feature - Happy Path Scenarios
     When the user retrieves the account by ID
     Then the response should contain first name <FirstName> and last name <LastName>
 
+    @Germany
     Examples:
       | FirstName       | LastName        | DOB          |
       | "Mercedes"      | "Benz"          | "2002-01-31" |
