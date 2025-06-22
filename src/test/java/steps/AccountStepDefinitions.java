@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import static constant.Constants.ACCOUNT_ID;
+import static constant.Constants.MESSAGE;
 
 public class AccountStepDefinitions {
     private static final Logger logger = LoggerFactory.getLogger(AccountStepDefinitions.class);
@@ -53,5 +54,13 @@ public class AccountStepDefinitions {
         String id = response.jsonPath().getString(ACCOUNT_ID);
         Assert.assertNotNull(id);
         Assert.assertFalse(id.isEmpty());
+    }
+
+    @Then("Assert the response should have message {string}")
+    public void validateResponseMessage(String messageExpected) {
+        String messageActual = response.jsonPath().getString(MESSAGE);
+        Assert.assertNotNull(messageActual);
+        Assert.assertFalse(messageActual.isEmpty());
+        Assert.assertEquals(messageActual, messageExpected);
     }
 }
