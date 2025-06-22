@@ -2,7 +2,7 @@ package api;
 
 import config.ConfigurationManager;
 import io.restassured.response.Response;
-import model.AuthRequest;
+import model.AuthRequestModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,19 +21,19 @@ public class AuthClient {
     private final String baseUrl = ConfigurationManager.get(BASE_URL);
     private final String loginEndpoint = ConfigurationManager.get(AUTH_URL); // e.g. /api/auth/login
 
-    public Response login(AuthRequest authRequest) {
+    public Response login(AuthRequestModel authRequestModel) {
         logger.info("Login request sent to: {}", baseUrl+loginEndpoint);
 
         return given()
             .baseUri(baseUrl)
             .header(CONTENT_TYPE,CONTENT_TYPE_JSON)
-            .body(authRequest)
+            .body(authRequestModel)
             .post(loginEndpoint);
 
     }
 
     public String generateApiKey(String username, String password) {
-        AuthRequest request = new AuthRequest(username, password);
+        AuthRequestModel request = new AuthRequestModel(username, password);
         Response response = login(request);
 
         int statusCode = response.getStatusCode();

@@ -10,7 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
-import model.AccountRequest;
+import model.AccountRequestModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
@@ -18,7 +18,7 @@ import util.TestContext;
 
 public class AccountRetrievalStepDefinitions {
     private static final Logger logger = LoggerFactory.getLogger(AccountRetrievalStepDefinitions.class);
-    private final AccountRequest request = new AccountRequest();
+    private final AccountRequestModel request = new AccountRequestModel();
     private final AccountHelper accountHelper = new AccountHelper();
     private Response response;
 

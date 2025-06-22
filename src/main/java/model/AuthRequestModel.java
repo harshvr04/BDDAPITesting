@@ -5,14 +5,14 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class AuthRequest {
+public class AuthRequestModel {
     // Getters and setters
     private String username;
     private String password;
 
-    public AuthRequest() {}
+    public AuthRequestModel() {}
 
-    public AuthRequest(String username, String password) {
+    public AuthRequestModel(String username, String password) {
         this.username = username;
         this.password = password;
     }

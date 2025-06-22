@@ -2,7 +2,7 @@ package helper;
 
 import api.AccountApiClient;
 import io.restassured.response.Response;
-import model.AccountRequest;
+import model.AccountRequestModel;
 import util.TestContext;
 
 import static constant.HttpStatusCodes.OK;
@@ -15,7 +15,7 @@ public class AccountHelper {
         this.accountApiClient = new AccountApiClient();  // dependency initialization
     }
 
-    public String createAccount(AccountRequest request) {
+    public String createAccount(AccountRequestModel request) {
         Response response = accountApiClient.createAccount(request);
 
         if (response.statusCode() != OK) {

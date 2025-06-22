@@ -6,7 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
-import model.AccountRequest;
+import model.AccountRequestModel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ import static constant.Constants.MESSAGE;
 public class AccountStepDefinitions {
     private static final Logger logger = LoggerFactory.getLogger(AccountStepDefinitions.class);
 
-    private final AccountRequest request = new AccountRequest();
+    private final AccountRequestModel request = new AccountRequestModel();
     private final AccountApiClient apiClient;
     private Response response;
 

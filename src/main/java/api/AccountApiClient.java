@@ -2,7 +2,7 @@ package api;
 
 import config.ConfigurationManager;
 import io.restassured.response.Response;
-import model.AccountRequest;
+import model.AccountRequestModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.TestContext;
@@ -20,7 +20,7 @@ public class AccountApiClient {
     private final String baseUrl = ConfigurationManager.get(BASE_URL);
     private final String accountsUrl = ConfigurationManager.get(ACCOUNTS_URL);
 
-    public Response createAccount(AccountRequest request) {
+    public Response createAccount(AccountRequestModel request) {
         logger.info("Login request sent to: {}", baseUrl+accountsUrl);
 
         return given()

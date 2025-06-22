@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Random;
-import model.AccountRequest;
+import model.AccountRequestModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,10 +12,11 @@ import org.slf4j.LoggerFactory;
 public class TestDataGenerator {
     private static final Logger logger = LoggerFactory.getLogger(TestDataGenerator.class);
 
+    //Deliberately including FirstName and LastName greater than 50 for generating wrong data
     private static final List<String> FIRST_NAMES = List.of("MoreThanFiFtyMoreThanFiFtyMoreThanFiFty", "Alice", "Sam", "Eva", "Max", "Lily");
     private static final List<String> LAST_NAMES = List.of("MoreThanFiFtyMoreThanFiFtyMoreThanFiFty", "Brown", "Taylor", "Lee", "Davis", "White");
 
-    public static AccountRequest generateRandomAccountRequest() {
+    public static AccountRequestModel generateRandomAccountRequest() {
         Random rand = new Random();
         String firstName = FIRST_NAMES.get(rand.nextInt(FIRST_NAMES.size()));
         String lastName = LAST_NAMES.get(rand.nextInt(LAST_NAMES.size()));
@@ -29,7 +30,7 @@ public class TestDataGenerator {
         double deposit = Math.round(rand.nextDouble() * 10000.0 * 100.0) / 100.0;
 
         //Creating Payload for Account Creation API
-        AccountRequest request = new AccountRequest();
+        AccountRequestModel request = new AccountRequestModel();
         request.setFirst_name(firstName);
         request.setLast_name(lastName);
         request.setDate_of_birth(dob);

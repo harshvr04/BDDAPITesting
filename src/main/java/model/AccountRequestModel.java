@@ -9,8 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Getter
-public class AccountRequest {
-    private static final Logger logger = LoggerFactory.getLogger(AccountRequest.class);
+public class AccountRequestModel {
+    private static final Logger logger = LoggerFactory.getLogger(AccountRequestModel.class);
 
     // Getters and setters
     private String first_name;

@@ -3,7 +3,7 @@ package loadtest;
 import api.AccountApiClient;
 import api.AuthClient;
 import io.restassured.response.Response;
-import model.AccountRequest;
+import model.AccountRequestModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.TestContext;
@@ -52,7 +52,7 @@ public class LoadTestRunner {
                     //Sequential call in each thread
                     for (int j = 0; j < ITERATIONS_PER_THREAD; j++) {
                         try {
-                            AccountRequest req = TestDataGenerator.generateRandomAccountRequest();
+                            AccountRequestModel req = TestDataGenerator.generateRandomAccountRequest();
 
                             long start = System.currentTimeMillis();
                             Response postResp = client.createAccount(req);
