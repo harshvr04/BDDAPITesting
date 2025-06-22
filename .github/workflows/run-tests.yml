@@ -1,4 +1,4 @@
-name: Run BDD Test Suite
+name: Run BDD-Cucumber API Test Suite
 
 on:
   push:
@@ -38,13 +38,21 @@ jobs:
             echo "No tag provided. Using default: @sanity"
             TAG="@sanity"
           fi
+          
+          ENV="${{ github.event.inputs.env }}"
+          if [ -z "$ENV" ]; then
+            echo "No environment provided. Using default: local"
+            ENV="local"
+          fi
 
-          echo "Running tests with tag: $TAG"
-
+          echo "Running tests with tag: $TAG and environment: $ENV"
+          
           mvn clean test \
             -Dcucumber.filter.tags="$TAG" \
             -Dusername="${{ github.event.inputs.username }}" \
-            -Dpassword="${{ github.event.inputs.password }}"
+            -Dpassword="${{ github.event.inputs.password }}" \
+            -Denv="$ENV"
+
 
       - name: Upload ExtentSpark HTML Report
         if: always()
