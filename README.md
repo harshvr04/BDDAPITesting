@@ -55,6 +55,7 @@ Import the project into IntelliJ IDEA:
 - **CI/CD**: GitHub Actions integration
 - Trigger test runs via `repository_dispatch` event using GitHub Personal Access Token (PAT)
 - Easy integration into CI pipelines
+- Refer [Workflow Integration Readme](workflowIntegration.md)
 
 ### 3. Reporting
 
@@ -239,6 +240,7 @@ Results reported to:
    - Data inputs (pre-filled JSON bodies or values)
 ## 📘 See Also
 - [GitHub Actions Workflow Docs](.github/workflows/test.yml)
+- [Workflow Integration Readme](workflowIntegration.md)
 ---
 
 For questions or contributions, please contact the framework maintainer.
