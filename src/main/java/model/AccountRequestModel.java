@@ -13,6 +13,7 @@ public class AccountRequestModel {
     private static final Logger logger = LoggerFactory.getLogger(AccountRequestModel.class);
 
     // Getters and setters
+    // Model variable names deliberately following API payload naming convention
     private String first_name;
     private String last_name;
     private String date_of_birth;

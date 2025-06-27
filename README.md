@@ -89,7 +89,7 @@ Import the project into IntelliJ IDEA:
 
 - Flag-based test runner support: `-DloadTesting=true`
 - Load-test using randomly generated data with reports logged out as part of terminal
-
+- Account Creation(POST) && Retrieval(GET) APIs are being called iteratively across threads. The number of iterations and the number of threads are both configurable
 ---
 
 ## 🔨 Build & Run Commands
@@ -150,7 +150,9 @@ mvn clean test -DloadTesting=true
 │   │       │   └── AccountHelper.java
 │   │       ├── model
 │   │       │   ├── AccountRequestModel.java
-│   │       │   └── AuthRequestModel.java
+│   │       │   ├── AuthRequestModel.java
+│   │       │   └── builder
+│   │       │       └── AccountRequestBuilder.java
 │   │       └── util
 │   │           └── TestContext.java
 │   └── test
@@ -181,8 +183,10 @@ mvn clean test -DloadTesting=true
 │           ├── staging.properties
 │           ├── secret_keys.properties
 │           └── testng.xml
-└── .gitignore    
+└── .gitignore  
 ```
+- API request creation follows the **Builder Pattern** to ensure immutability, readability, and maintainability of request objects. This approach supports flexible construction of complex request payloads while adhering to the **Single Responsibility** and **Open/Closed** principles.
+
 ## 🔄 Execution Flow Diagram
 
 User triggers Maven command:

@@ -24,7 +24,7 @@ public class LoadTestRunner {
     private static final Logger logger = LoggerFactory.getLogger(LoadTestRunner.class);
 
     //THREAD_COUNT * ITERATIONS_PER_THREAD = Number of API requests generated
-    private static final int THREAD_COUNT = 4;
+    private static final int THREAD_COUNT = 2;
     private static final int ITERATIONS_PER_THREAD = 50; // 2 * 50 = 100 (100 tests running in parallel)
 
     public static void run() throws InterruptedException {
@@ -55,6 +55,8 @@ public class LoadTestRunner {
                             AccountRequestModel req = TestDataGenerator.generateRandomAccountRequest();
 
                             long start = System.currentTimeMillis();
+
+                            //Create Account - POST
                             Response postResp = client.createAccount(req);
                             long end = System.currentTimeMillis();
 
@@ -72,7 +74,9 @@ public class LoadTestRunner {
                             metrics.successCount++;
                             String id = postResp.jsonPath().getString(ACCOUNT_ID);
                             if (id != null) {
+                                //Retrieve Account - GET
                                 Response getResp = client.getAccountById(id);
+
                                 logger.info(String.format("Thread %s - Account: %s | IBAN: %s%n",
                                     Thread.currentThread().getName(),
                                     id,

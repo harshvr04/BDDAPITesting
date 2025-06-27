@@ -11,6 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import model.AccountRequestModel;
+import model.builder.AccountRequestBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
@@ -18,15 +19,19 @@ import util.TestContext;
 
 public class AccountRetrievalStepDefinitions {
     private static final Logger logger = LoggerFactory.getLogger(AccountRetrievalStepDefinitions.class);
-    private final AccountRequestModel request = new AccountRequestModel();
+
+    //Using Builder Pattern to build Account API Request
+    private final AccountRequestBuilder builder = AccountRequestBuilder.builder();
+    private AccountRequestModel request = new AccountRequestModel();
     private final AccountHelper accountHelper = new AccountHelper();
     private Response response;
 
     @Given("the user has created an account with first name {string}, last name {string}, date of birth {string} and no initial deposit")
     public void userCreatesAccount(String firstName, String lastName, String dob) {
-        request.setFirst_name(firstName);
-        request.setLast_name(lastName);
-        request.setDate_of_birth(dob);
+        request = builder.withFirstName(firstName)
+            .withLastName(lastName)
+            .withDob(dob)
+            .build();
         accountHelper.createAccount(request);
     }
 

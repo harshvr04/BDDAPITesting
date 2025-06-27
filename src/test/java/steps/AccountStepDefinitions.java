@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import model.AccountRequestModel;
 
+import model.builder.AccountRequestBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
@@ -17,7 +18,9 @@ import static constant.Constants.MESSAGE;
 public class AccountStepDefinitions {
     private static final Logger logger = LoggerFactory.getLogger(AccountStepDefinitions.class);
 
-    private final AccountRequestModel request = new AccountRequestModel();
+    //Using Builder Pattern to build Account API Request
+    private final AccountRequestBuilder builder = AccountRequestBuilder.builder();
+    private AccountRequestModel request;
     private final AccountApiClient apiClient;
     private Response response;
 
@@ -27,24 +30,25 @@ public class AccountStepDefinitions {
 
     @Given("I have a client with first name {string} and last name {string}")
     public void setNames(String firstName, String lastName) {
-        request.setFirst_name(firstName);
-        request.setLast_name(lastName);
+        builder.withFirstName(firstName)
+            .withLastName(lastName);
     }
 
     @And("the client was born on {string}")
     public void setDOB(String dobStr) {
-        request.setDate_of_birth(dobStr);
+        builder.withDob(dobStr);
     }
 
     @And("the client makes an initial deposit of {double}")
     public void setDeposit(Double deposit) {
-        request.setInitial_deposit(deposit);
+        builder.withInitialDeposit(deposit);
     }
 
     @When("I send a request to create an account")
     public void sendRequest() {
         //To validate Parallel Execution. To change thread-count, edit thread-count in testng.xml file
         logger.info("Running thread: {}", Thread.currentThread().getId());
+        request = builder.build();
         response = apiClient.createAccount(request);
     }
 
