@@ -1,0 +1,10 @@
+<extentreports>
+  <configuration>
+    <theme>dark</theme>
+    <encoding>utf-8</encoding>
+    <protocol>https</protocol>
+    <timelineEnabled>true</timelineEnabled>
+    <documentTitle>Test Report</documentTitle>
+    <reportName>API Automation Report</reportName>
+  </configuration>
+</extentreports>
